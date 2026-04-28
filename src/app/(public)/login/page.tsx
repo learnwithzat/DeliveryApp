@@ -132,14 +132,7 @@ export default function LoginPage() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            style={{
-              width: '100%',
-              padding: '12px',
-              borderRadius: 'var(--r-md)',
-              border: '1px solid var(--border)',
-              background: 'var(--bg-surface)',
-              fontSize: 14,
-            }}
+            className="w-full p-3 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
             placeholder='ahmed@example.com'
           />
         </div>
@@ -154,15 +147,7 @@ export default function LoginPage() {
               required
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                borderRadius: 'var(--r-md)',
-                border: '1px solid var(--border)',
-                background: 'var(--bg-surface)',
-                fontSize: 14,
-                paddingRight: '40px',
-              }}
+              className="w-full p-3 pr-10 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
               placeholder='••••••'
             />
             <button
@@ -190,7 +175,7 @@ export default function LoginPage() {
               type='checkbox'
               checked={formData.rememberMe}
               onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
-              style={{ width: 14, height: 14, cursor: 'pointer' }}
+              className="w-3.5 h-3.5 cursor-pointer accent-[var(--brand)] focus:ring-[var(--brand)]"
             />
             <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Remember me</span>
           </label>

@@ -109,14 +109,7 @@ export default function RegisterPage() {
               required
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '10px',
-                borderRadius: 'var(--r-md)',
-                border: '1px solid var(--border)',
-                background: 'var(--bg-surface)',
-                fontSize: 13,
-              }}
+              className="w-full p-2.5 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
               placeholder='Ahmed Al-Farsi'
             />
           </div>
@@ -128,14 +121,7 @@ export default function RegisterPage() {
               type='text'
               value={formData.companyName}
               onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '10px',
-                borderRadius: 'var(--r-md)',
-                border: '1px solid var(--border)',
-                background: 'var(--bg-surface)',
-                fontSize: 13,
-              }}
+              className="w-full p-2.5 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
               placeholder='Your business name'
             />
           </div>
@@ -150,14 +136,7 @@ export default function RegisterPage() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            style={{
-              width: '100%',
-              padding: '10px',
-              borderRadius: 'var(--r-md)',
-              border: '1px solid var(--border)',
-              background: 'var(--bg-surface)',
-              fontSize: 13,
-            }}
+            className="w-full p-2.5 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
             placeholder='ahmed@example.com'
           />
         </div>
@@ -171,14 +150,7 @@ export default function RegisterPage() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            style={{
-              width: '100%',
-              padding: '10px',
-              borderRadius: 'var(--r-md)',
-              border: '1px solid var(--border)',
-              background: 'var(--bg-surface)',
-              fontSize: 13,
-            }}
+            className="w-full p-2.5 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
             placeholder='+966 5X XXX XXXX'
           />
         </div>
@@ -194,15 +166,7 @@ export default function RegisterPage() {
                 required
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  borderRadius: 'var(--r-md)',
-                  border: '1px solid var(--border)',
-                  background: 'var(--bg-surface)',
-                  fontSize: 13,
-                  paddingRight: '35px',
-                }}
+                className="w-full p-2.5 pr-[35px] rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
                 placeholder='••••••'
               />
               <button
@@ -232,14 +196,7 @@ export default function RegisterPage() {
               required
               value={formData.confirmPassword}
               onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '10px',
-                borderRadius: 'var(--r-md)',
-                border: '1px solid var(--border)',
-                background: 'var(--bg-surface)',
-                fontSize: 13,
-              }}
+              className="w-full p-2.5 rounded-[var(--r-md)] border border-[var(--border)] bg-[var(--bg-surface)] text-[13px] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-transparent transition-all"
               placeholder='••••••'
             />
           </div>
@@ -251,7 +208,7 @@ export default function RegisterPage() {
               type='checkbox'
               checked={formData.agreeTerms}
               onChange={(e) => setFormData({ ...formData, agreeTerms: e.target.checked })}
-              style={{ width: 16, height: 16, cursor: 'pointer' }}
+              className="w-4 h-4 cursor-pointer accent-[var(--brand)] focus:ring-[var(--brand)]"
             />
             <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
               I agree to the{' '}

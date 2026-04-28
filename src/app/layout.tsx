@@ -31,13 +31,7 @@ export default function RootLayout({
 		<html
 			lang='en'
 			className={`${dmSans.variable} ${dmMono.variable} h-full antialiased`}>
-			<body
-				className='min-h-screen flex flex-col'
-				style={{
-					background: 'var(--bg-page)',
-					color: 'var(--text-primary)',
-					fontFamily: 'var(--font-sans)',
-				}}>
+			<body className='min-h-screen flex flex-col bg-background text-foreground font-sans'>
 				{children}
 			</body>
 		</html>

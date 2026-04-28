@@ -2,7 +2,6 @@
 
 'use client';
 
-import { sidebarStyles } from '@/features/dashboard';
 import { useRouter, usePathname } from 'next/navigation';
 import { NAV_ITEMS } from './nav.data';
 import { NavItem } from './NavItem';
@@ -10,9 +9,9 @@ import { NavItem } from './NavItem';
 function LogoSection() {
 	const router = useRouter();
 	return (
-		<div style={sidebarStyles.logoContainer}>
+		<div className='p-[20px_18px_16px] border-b border-[var(--border)] flex items-center gap-[11px]'>
 			<div
-				style={sidebarStyles.logoIcon}
+				className='w-[34px] h-[34px] rounded-[var(--r-md)] shrink-0 bg-gradient-to-br from-[#1a56db] to-[#7c3aed] flex items-center justify-center shadow-[0_2px_8px_rgba(26,86,219,0.3)] cursor-pointer'
 				onClick={() => router.push('/dashboard')}
 				role='button'
 				tabIndex={0}>
@@ -30,8 +29,12 @@ function LogoSection() {
 				</svg>
 			</div>
 			<div>
-				<div style={sidebarStyles.logoText}>ZATdel</div>
-				<div style={sidebarStyles.logoSubtext}>DELIVERY TOWER</div>
+				<div className='text-[15px] font-extrabold tracking-tight leading-tight'>
+					ZATdel
+				</div>
+				<div className='text-[10px] text-[var(--text-muted)] font-mono tracking-[0.07em] leading-[1.3]'>
+					DELIVERY TOWER
+				</div>
 			</div>
 		</div>
 	);
@@ -49,45 +52,26 @@ function NavButton({
 	return (
 		<button
 			onClick={onClick}
-			style={{
-				...sidebarStyles.navButton,
-				border:
-					isActive ? '1px solid rgba(26,86,219,0.18)' : '1px solid transparent',
-				background: isActive ? 'var(--brand-light)' : 'transparent',
-				color: isActive ? 'var(--brand)' : 'var(--text-secondary)',
-				fontWeight: isActive ? 600 : 500,
-			}}
-			onMouseEnter={(e) => {
-				if (!isActive) {
-					(e.currentTarget as HTMLElement).style.background =
-						'var(--bg-raised)';
-					(e.currentTarget as HTMLElement).style.color = 'var(--text-primary)';
-				}
-			}}
-			onMouseLeave={(e) => {
-				if (!isActive) {
-					(e.currentTarget as HTMLElement).style.background = 'transparent';
-					(e.currentTarget as HTMLElement).style.color =
-						'var(--text-secondary)';
-				}
-			}}>
-			{isActive && <div style={sidebarStyles.activeIndicator} />}
+			className={`w-full flex items-center gap-[9px] p-[8px_10px] rounded-[var(--r-md)] mb-px text-left cursor-pointer transition-all duration-150 relative text-[13px] ${
+				isActive ?
+					'border border-[rgba(26,86,219,0.18)] bg-[var(--brand-light)] text-[var(--brand)] font-semibold'
+				:	'border border-transparent text-[var(--text-secondary)] font-medium hover:bg-[var(--bg-raised)] hover:text-[var(--text-primary)]'
+			}`}>
+			{isActive && (
+				<div className='absolute -left-[10px] top-1/2 -translate-y-1/2 w-[3px] h-[18px] bg-[var(--brand)] rounded-[0_3px_3px_0]' />
+			)}
 			<span
-				style={{
-					opacity: isActive ? 1 : 0.55,
-					flexShrink: 0,
-					display: 'flex',
-				}}>
+				className={`shrink-0 flex ${isActive ? 'opacity-100' : 'opacity-[0.55]'}`}>
 				{item.icon}
 			</span>
-			<span style={{ flex: 1, letterSpacing: '-0.005em' }}>{item.label}</span>
+			<span className='flex-1 tracking-tight'>{item.label}</span>
 			{item.badge && (
 				<span
-					style={{
-						...sidebarStyles.badge,
-						background: isActive ? 'rgba(26,86,219,0.12)' : 'var(--bg-sunken)',
-						color: isActive ? 'var(--brand)' : 'var(--text-muted)',
-					}}>
+					className={`text-[10px] font-mono p-[1px_7px] rounded-full font-medium ${
+						isActive ?
+							'bg-[rgba(26,86,219,0.12)] text-[var(--brand)]'
+						:	'bg-[var(--bg-sunken)] text-[var(--text-muted)]'
+					}`}>
 					{item.badge}
 				</span>
 			)}
@@ -98,16 +82,16 @@ function NavButton({
 function ProfileCard() {
 	const router = useRouter();
 	return (
-		<div style={{ padding: 14, borderTop: '1px solid var(--border)' }}>
+		<div className="p-[14px] border-t border-[var(--border)]">
 			<div
-				style={sidebarStyles.profileContainer}
+				className="flex items-center gap-2.5 p-[9px_12px] rounded-[var(--r-md)] bg-[var(--bg-raised)] border border-[var(--border)] cursor-pointer hover:bg-[var(--bg-sunken)] transition-colors"
 				onClick={() => router.push('/settings')}
 				role='button'
 				tabIndex={0}>
-				<div style={sidebarStyles.profileAvatar}>OA</div>
-				<div style={{ flex: 1, minWidth: 0 }}>
-					<div style={{ fontSize: 12, fontWeight: 600 }}>Omar Al-Farsi</div>
-					<div style={sidebarStyles.profileSubtext}>Admin · Main Logistics</div>
+				<div className="w-[30px] h-[30px] rounded-lg bg-gradient-to-br from-[#1a56db] to-[#7c3aed] flex items-center justify-center text-[11px] font-bold text-white shrink-0 font-mono">OA</div>
+				<div className="flex-1 min-w-0">
+					<div className="text-xs font-semibold">Omar Al-Farsi</div>
+					<div className="text-[10px] text-[var(--text-muted)] font-mono">Admin · Main Logistics</div>
 				</div>
 				<span style={{ color: 'var(--text-faint)', fontSize: 14 }}>⌄</span>
 			</div>
@@ -129,12 +113,12 @@ export function Sidebar() {
 	const isActiveRoute = (item: NavItem) => pathname === item.href;
 
 	return (
-		<aside style={sidebarStyles.aside}>
+		<aside className="w-[228px] min-w-[228px] bg-[var(--bg-surface)] border-r border-[var(--border)] flex flex-col overflow-hidden h-full">
 			<LogoSection />
-			<nav style={sidebarStyles.nav}>
+			<nav className="flex-1 p-2.5 overflow-y-auto">
 				{sections.map((section) => (
 					<div key={section}>
-						<div style={sidebarStyles.sectionHeader}>{section}</div>
+						<div className="text-[9px] font-semibold tracking-[0.12em] uppercase text-[var(--text-faint)] p-[12px_10px_5px] font-mono">{section}</div>
 						{NAV_ITEMS.filter((n) => n.section === section).map((item) => (
 							<NavButton
 								key={item.label}
